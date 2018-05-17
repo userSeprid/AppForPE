@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client details</title>
+    <link href="/css/core.css" rel="stylesheet" />
+    <link href="/css/searchTable.css" rel="stylesheet" />
+</head>
+<body>
+<a href="/allClients"><h3>Home</h3></a>
+<div class="client-table-container">
+    <h2>Client detail</h2>
+    <table id="myTable" class="empty-table">
+        <thead>
+        <tr class="header">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th th:text="${client.id}">...</th>
+            <th th:text="${client.name}">...</th>
+            <th th:text="${client.address}">...</th>
+            <th th:text="${client.age}">...</th>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Client accounts</h2>
+    <p>Click on account ID for perform money operations with account</p>
+    <table id="default-table">
+        <thead>
+        <tr class="header">
+            <th>ID</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="account : ${clientAccounts}">
+            <th th:text="${account.accountId}" th:onclick="'javascript:rowClicked(' + ${account.accountId} + ');'">...</th>
+            <th th:text="${account.accountBalance}">...</th>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <div id="form-container">
+        <h2>Create new account</h2>
+        <form action="#" th:action="@{/client/newAccount}" th:object="${account}" method="post">
+            <p hidden>Owner ID: <input type="number" th:field="*{ownerId}" /></p>
+            <p>Start balance: <input type="number" th:field="*{accountBalance}" required/></p>
+            <p><input type="submit" value="Create" /></p>
+        </form>
+    </div>
+</div>
+
+<script>
+    function rowClicked(value) {
+        location.href = "http://localhost:8080/account/" + value;
+    }
+</script>
+
+</body>
+</html>

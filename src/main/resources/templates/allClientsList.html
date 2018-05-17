@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients list</title>
+    <link href="/css/core.css" rel="stylesheet" />
+    <link href="/css/searchTable.css" rel="stylesheet" />
+</head>
+<body>
+<a href="/transactionsList"><h3>View transactions list</h3></a>
+    <div id="table-container">
+        <table id="myTable">
+            <thead>
+                <tr class="header">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-th-each="aClient : ${clientsList}">
+                    <th data-th-text="${aClient.id}">...</th>
+                    <th data-th-text="${aClient.name}" th:onclick="'javascript:rowClicked(' + ${aClient.id} + ');'">...</th>
+                    <th data-th-text="${aClient.address}">..</th>
+                    <th data-th-text="${aClient.age}">...</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="form-container">
+        <h2>Create new client</h2>
+        <form action="#" th:action="@{/allClients}" th:object="${client}" method="post">
+            <p>Name: <input type="text" th:field="*{name}" required/></p>
+            <p>Address: <input type="text" th:field="*{address}" required/></p>
+            <p>Age: <input type="number" th:field="*{age}" required/></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </div>
+
+    <script>
+        function rowClicked(value) {
+            location.href = "http://localhost:8080/client/" + value;
+        }
+    </script>
+</body>
+</html>

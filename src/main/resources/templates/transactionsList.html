@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions List</title>
+    <link href="/css/searchTable.css" rel="stylesheet" />
+</head>
+<body>
+<a href="/allClients"><h3>Home</h3></a>
+<div class="table-container">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by account ID's..">
+    <table id="myTable">
+        <thead>
+        <tr class="header">
+            <th>ID</th>
+            <th>Transferred amount</th>
+            <th>Sender account ID</th>
+            <th>Receiver account ID</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="transaction : ${transactions}">
+            <th data-th-text="${transaction.transactionId}">...</th>
+            <th data-th-text="${transaction.transferredAmount}">...</th>
+            <th data-th-text="${transaction.senderAccountId}">...</th>
+            <th data-th-text="${transaction.receiverAccountId}">...</th>
+            <th data-th-text="${transaction.transactionDate}">...</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, value, table, tr, th1, th2, i, j;
+        input = document.getElementById("myInput");
+        value = input.value;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 1; i < tr.length; i++) {
+            th1 = tr[i].getElementsByTagName("th")[2];
+            th2 = tr[i].getElementsByTagName("th")[3];
+            if (th1.innerText == value || th2.innerText == value || value == "") {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Money operations</title>
+    <link href="/css/core.css" rel="stylesheet" />
+    <link href="/css/searchTable.css" rel="stylesheet" />
+</head>
+<body>
+<a href="/allClients"><h3>Home</h3></a>
+<h3>Account details</h3>
+<div id="table-container">
+    <table id="myTable">
+        <thead>
+        <tr class="header">
+            <th>Account ID</th>
+            <th>Owner ID</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th th:text="${operation.account.accountId}">...</th>
+            <th th:text="${operation.account.ownerId}">...</th>
+            <th th:text="${operation.account.accountBalance}">...</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="form-container">
+    <table id="mySecondTable">
+        <thead>
+        <tr class="header">
+            <th>Deposit money</th>
+            <th>Withdraw money</th>
+            <th>Transfer money</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>
+                <div id="deposit">
+                    <form action="#" th:action="@{/deposit}" th:object="${operation}" method="post">
+                        <p hidden><input type="number" th:field="*{account.accountId}" /></p>
+                        <p hidden><input type="number" th:field="*{account.ownerId}" /></p>
+                        <p hidden><input type="number" th:field="*{account.accountBalance}" /></p>
+                        <p hidden><input type="number" th:field="*{client.id}" /></p>
+                        <p hidden><input type="text" th:field="*{client.name}" /></p>
+                        <p hidden><input type="text" th:field="*{client.address}" /></p>
+                        <p hidden><input type="number" th:field="*{client.age}" /></p>
+
+                        <p>Amount: <input type="number" th:field="*{amount}" required/></p>
+                        <p><input type="submit" value="Deposit" /></p>
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div id="withdraw">
+                    <form action="#" th:action="@{/withdraw}" th:object="${operation}" method="post">
+                        <p hidden><input type="number" th:field="*{account.accountId}" /></p>
+                        <p hidden><input type="number" th:field="*{account.ownerId}" /></p>
+                        <p hidden><input type="number" th:field="*{account.accountBalance}" /></p>
+                        <p hidden><input type="number" th:field="*{client.id}" /></p>
+                        <p hidden><input type="text" th:field="*{client.name}" /></p>
+                        <p hidden><input type="text" th:field="*{client.address}" /></p>
+                        <p hidden><input type="number" th:field="*{client.age}" /></p>
+
+                        <p>Amount: <input type="number" th:field="*{amount}" required/></p>
+                        <p><input type="submit" value="Withdraw" /></p>
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div id="transfer">
+                    <form action="#" th:action="@{/transfer}" th:object="${transfer}" method="post">
+                        <p hidden><input type="number" th:field="*{senderID}" /></p>
+
+                        <p>Receiver account ID: <input type="number" th:field="*{receiverID}" required/></p>
+                        <p>Amount: <input type="number" th:field="*{amount}" required/></p>
+                        <p><input type="submit" value="Transfer" /></p>
+                    </form>
+                </div>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

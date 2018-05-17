@@ -1,0 +1,10 @@
+#default-table {
+    border-collapse: collapse;
+    align-content: center;
+    font-size: medium;
+    width: 50%;
+}
+
+#default-table, #default-table th, #default-table td {
+    border: 1px solid black;
+}

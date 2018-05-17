@@ -1,0 +1,33 @@
+#myInput {
+    /* Add a search icon to input */
+    /* Position the search icon */
+    /* Do not repeat the icon image */
+    background: url('searchicon.png') no-repeat 10px 12px;
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #a2a2a2; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable, #mySecondTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #a2a2a2; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td, #mySecondTable th, #mySecondTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+}
+
+#myTable tr, #mySecondTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #000000;
+}
+
+#myTable tr.header, #myTable tr:hover, #mySecondTable tr.header, #mySecondTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #9f9f9f;
+}

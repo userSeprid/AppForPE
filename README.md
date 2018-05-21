@@ -42,4 +42,4 @@ To start do the following:
 1. Open command line in root project directory
 2. type 'mvn spring-boot:run' to start the application.
 
-! Maven must be installed and configured and MySQL server must be started before starting the application !
+! Maven must be installed and configured and MySQL server must be started before starting the application  also DB must be prepared - dump file located in 'AppForPE/src/main/resources/mysql/dump.sql' !

@@ -36,4 +36,10 @@ Technology, tools, libs used:
 - MySQL DB
 - Thymeleaf
 
-For deployment spring-boot plugin is uses. (org.springframework.boot:spring-boot-maven-plugin:2.0.2.RELEASE:run -f pom.xml)
+For deployment spring-boot plugin is uses. (org.springframework.boot:spring-boot-maven-plugin:2.0.2.RELEASE)
+
+To start do the following:
+1. Open command line in root project directory
+2. type 'mvn spring-boot:run' to start the application.
+
+! Maven must be installed and configured and MySQL server must be started before starting the application !

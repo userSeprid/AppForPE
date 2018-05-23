@@ -39,7 +39,12 @@ Technology, tools, libs used:
 For deployment spring-boot plugin is uses. (org.springframework.boot:spring-boot-maven-plugin:2.0.2.RELEASE)
 
 To start do the following:
-1. Open command line in root project directory
-2. type 'mvn spring-boot:run' to start the application.
+1. Install apache maven 'https://maven.apache.org/index.html'.
+2. Type ' mvn -version' in command line. If as input you have message with information about your maven and java version and path ande other information it mean that maven configured properrly.
+3. Install MySQL server 'https://www.mysql.com/'.
+4. Start MySQL server 'https://dev.mysql.com/doc/refman/8.0/en/'.
+5. Import the dump file 'AppForPE/src/main/resources/mysql/dump.sql' into your DB
+6. Open command line in root project directory
+7. type 'mvn spring-boot:run' to start the application.
 
 ! Maven must be installed and configured and MySQL server must be started before starting the application  also DB must be prepared - dump file located in 'AppForPE/src/main/resources/mysql/dump.sql' !

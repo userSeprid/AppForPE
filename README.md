@@ -45,6 +45,7 @@ To start do the following:
 4. Start MySQL server 'https://dev.mysql.com/doc/refman/8.0/en/'.
 5. Import the dump file 'AppForPE/src/main/resources/mysql/dump.sql' into your DB
 6. Open command line in root project directory
-7. type 'mvn spring-boot:run' to start the application.
+7. Type 'mvn spring-boot:run' to start the application.
+8. Open in your browser 'http://localhost:8090/allClients'
 
 ! Maven must be installed and configured and MySQL server must be started before starting the application  also DB must be prepared - dump file located in 'AppForPE/src/main/resources/mysql/dump.sql' !
